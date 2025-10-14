@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>课堂点名器</title>
+    <style>
+        body {
+            font-family: "微软雅黑", Arial;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #studentList {
+            list-style: none;
+            padding: 0;
+        }
+        .student {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>课堂点名器</h1>
+    <button onclick="randomCall()">随机点名</button>
+    <ul id="studentList">
+        <li class="student">张三</li>
+        <li class="student">李四</li>
+        <li class="student">王五</li>
+        <li class="student">赵六</li>
+        <li class="student">小红</li>
+    </ul>
+
+    <script>
+        function randomCall() {
+            // 取消上次选中
+            document.querySelectorAll('.selected').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // 随机选择
+            const students = document.querySelectorAll('.student');
+            const randomIndex = Math.floor(Math.random() * students.length);
+            students[randomIndex].classList.add('selected');
+        }
+    </script>
+</body>
+</html>

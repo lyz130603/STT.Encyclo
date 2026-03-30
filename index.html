@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>课堂点名器</title>
-    <style>
-        body {
-            font-family: "微软雅黑", Arial;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #studentList {
-            list-style: none;
-            padding: 0;
-        }
-        .student {
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 5px;
-            cursor: pointer;
-        }
-        .selected {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <h1>课堂点名器</h1>
-    <button onclick="randomCall()">随机点名</button>
-    <ul id="studentList">
-        <li class="student">张三</li>
-        <li class="student">李四</li>
-        <li class="student">王五</li>
-        <li class="student">赵六</li>
-        <li class="student">小红</li>
-    </ul>
+  <meta charset="UTF-8">
+  <title>STT编号查询器</title>
+  <style>
+    body {
+      background-color: #0c1022;
+      color: #e0eaff;
+      font-family: "Microsoft YaHei", sans-serif;
+      text-align: center;
+      padding-top: 60px;
+    }
 
-    <script>
-        function randomCall() {
-            // 取消上次选中
-            document.querySelectorAll('.selected').forEach(item => {
-                item.classList.remove('selected');
-            });
-            
-            // 随机选择
-            const students = document.querySelectorAll('.student');
-            const randomIndex = Math.floor(Math.random() * students.length);
-            students[randomIndex].classList.add('selected');
-        }
-    </script>
+    h1 {
+      color: #4fc3ff;
+      text-shadow: 0 0 10px #4fc3ff, 0 0 20px #0088ff;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      color: #9cb8ff;
+      font-weight: normal;
+      margin-bottom: 40px;
+    }
+
+    #codeInput {
+      padding: 12px 20px;
+      font-size: 16px;
+      width: 260px;
+      border: 2px solid #4a9eff;
+      border-radius: 6px;
+      background-color: #121a33;
+      color: #fff;
+      outline: none;
+      text-align: center;
+    }
+
+    #codeInput:focus {
+      box-shadow: 0 0 12px #4fc3ff;
+    }
+
+    #searchBtn {
+      margin-left: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #2e7dff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #searchBtn:hover {
+      background-color: #4a9dff;
+      box-shadow: 0 0 10px #4a9dff;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>STT 时空隧道</h1>
+  <h3>人员查找器</h3>
+
+  <input type="text" id="codeInput" placeholder="输入编号">
+  <button id="searchBtn">查询身份</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
